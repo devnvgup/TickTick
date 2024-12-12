@@ -5,3 +5,8 @@
 .active-color {
     color: rgba(71, 114, 250, 1);
 }
+
+.login-pop-up {
+    font-size: 14px;
+    /* font-family: "Color Emoji", system-ui, -apple-system, sans-serif; */
+}
