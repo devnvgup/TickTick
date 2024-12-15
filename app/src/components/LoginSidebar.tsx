@@ -13,8 +13,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import KeyboardIcon from '@mui/icons-material/Keyboard';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import FeedbackIcon from '@mui/icons-material/Feedback';
-import { useEffect, useRef, useState } from 'react';
 import NotificationsPopup from './NotificationsPopup';
+import { useEffect, useRef, useState } from 'react';
 
 
 function LoginSidebar() {
@@ -30,6 +30,8 @@ function LoginSidebar() {
   const notiPopUpRef = useRef<HTMLDivElement | null>(null);
 
 
+
+
   const handleClickOutside = (event: MouseEvent) => {
     if (avatarRef.current && !avatarRef.current.contains(event.target as Node)) {
       setopenLoginPopUp(false);
@@ -37,11 +39,9 @@ function LoginSidebar() {
     if (qsIconRef.current && !qsIconRef.current.contains(event.target as Node)) {
       setOpenQuestionMarkPopup(false);
     }
-    if(notiIconRef.current && !notiIconRef.current.contains(event.target as Node)
-    || notiPopUpRef.current && !notiPopUpRef.current.contains(event.target as Node)) {
-      console.log(113113);
-      
-      setOpenNotiPopup(false)
+    if (notiIconRef.current && !notiIconRef.current.contains(event.target as Node)
+      && notiPopUpRef.current && !notiPopUpRef.current.contains(event.target as Node)) {
+       setOpenNotiPopup(false)
     }
   };
 
@@ -98,10 +98,10 @@ function LoginSidebar() {
           </div>
           <div ref={notiIconRef} className='flex justify-center static' onClick={() => setOpenNotiPopup(!openNotiPopup)}>
             <NotificationsIcon className="text-gray-400 hover:text-gray-700" />
-            {openNotiPopup && <div ref={notiPopUpRef} className='absolute left-10 bottom-12'>
-              <NotificationsPopup />
-            </div>}
           </div>
+          {openNotiPopup && <div ref={notiPopUpRef} className='absolute left-10 bottom-12'>
+            <NotificationsPopup />
+          </div>}
           <div ref={qsIconRef} className='flex justify-center static' onClick={() => setOpenQuestionMarkPopup(!openQuestionMarkPopup)}>
             <QuestionMarkIcon className="text-gray-400 hover:text-gray-700" />
             {openQuestionMarkPopup && <div ref={qsMarkPopupRef} className='login-pop-up absolute bottom-5 left-10 w-44 h-200 shadow-2xl shadow-gray-500 rounded-lg'>
